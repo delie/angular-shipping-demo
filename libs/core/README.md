@@ -1,6 +1,4 @@
-# core
-
-This library was generated with [Nx](https://nx.dev).
+# Core Library
 
 ## Running unit tests
 

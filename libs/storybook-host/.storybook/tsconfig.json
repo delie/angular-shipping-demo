@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.lib.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": [
+    "../../**/node_modules",
+    "../../**/testing",
+    "../../**/*.spec.ts",
+    "../../**/test-setup.ts",
+    "../../**/jest.config.ts",
+    "../../**/*.routes.ts",
+    "../../**/*.mock.ts",
+    "../../**/*.interface.ts"
+  ],
+  "include": [
+    "../../**/*.stories.ts",
+    "../src/lib/**/*.ts",
+    "*.ts"
+  ]
+}

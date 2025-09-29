@@ -1,4 +1,4 @@
-# vessel
+# Vessel LIbrary
 
 ## Running unit tests
 

@@ -2,7 +2,7 @@
   "name": "vessel",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/vessel/src",
-  "prefix": "lib",
+  "prefix": "demo",
   "projectType": "library",
   "tags": [],
   "targets": {

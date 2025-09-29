@@ -1,0 +1,80 @@
+{
+  "name": "storybook-host",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/storybook-host/src",
+  "prefix": "demo",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/storybook-host/**/*.ts",
+          "libs/storybook-host/**/*.html"
+        ]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/storybook-host/.storybook",
+        "browserTarget": "storybook-host:build-storybook",
+        "compodoc": false,
+        "assets": [],
+        "styles": [],
+        "stylePreprocessorOptions": {
+          "includePaths": []
+        }
+      },
+
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook",
+        "configDir": "libs/storybook-host/.storybook",
+        "browserTarget": "storybook-host:build-storybook",
+        "compodoc": false,
+        "assets": [],
+        "styles": [],
+        "stylePreprocessorOptions": {
+          "includePaths": []
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c .storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "storybook-host:build-storybook",
+        "staticFilePath": "dist/storybook/ui"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "storybook-host:build-storybook:ci"
+        }
+      }
+    }
+  }
+}

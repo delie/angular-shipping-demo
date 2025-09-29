@@ -1,0 +1,22 @@
+{
+  "name": "dashboard",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/dashboard/src",
+  "prefix": "demo",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": [
+        "{options.reportsDirectory}"
+      ],
+      "options": {
+        "reportsDirectory": "../../coverage/libs/dashboard"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

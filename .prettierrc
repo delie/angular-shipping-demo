@@ -1,7 +1,7 @@
 {
   "pluginSearchDirs": ["./node_modules"],
   "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-multiline-arrays"],
-  "singleQuote": false,
+  "singleQuote": true,
   "semi": true,
   "tabWidth": 2,
   "trailingComma": "es5",

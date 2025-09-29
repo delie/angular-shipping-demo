@@ -21,8 +21,14 @@
       "@demo/core": [
         "libs/core/src/index.ts"
       ],
+      "@demo/dashboard": [
+        "libs/dashboard/src/index.ts"
+      ],
       "@demo/emission": [
         "libs/emission/src/index.ts"
+      ],
+      "@demo/storybook-host": [
+        "libs/storybook-host/src/index.ts"
       ],
       "@demo/vessel": [
         "libs/vessel/src/index.ts"

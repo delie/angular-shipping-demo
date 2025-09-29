@@ -1,15 +1,9 @@
-import { Component } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import { CoreComponent } from "@demo/core";
-import { EmissionComponent } from "@demo/emission";
-import { VesselComponent } from "@demo/vessel";
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  imports: [RouterModule, VesselComponent, CoreComponent, EmissionComponent],
-  selector: "demo-root",
-  templateUrl: "./app.html",
-  styleUrl: "./app.scss",
+  imports: [RouterModule],
+  selector: 'demo-root',
+  templateUrl: './app.html',
 })
-export class App {
-  protected title = "angular-shipping-demo";
-}
+export class App {}
