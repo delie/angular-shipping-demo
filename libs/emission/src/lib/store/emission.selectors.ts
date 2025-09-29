@@ -1,7 +1,7 @@
-import { createSelector } from '@ngrx/store';
-import { CoreState } from '../../interfaces/core-state.interface';
-import { VATState } from '../../interfaces/vat-state.interface';
-import { selectCoreFeature } from '../core.selectors';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { EmissionState } from '../interfaces/emission-state.interface';
+import { emissionStateKey } from './emission.state';
 
-export const selectVATState = createSelector(selectCoreFeature, (state: CoreState) => state.vat);
-export const selectVATList = createSelector(selectVATState, (state: VATState) => state.list);
+export const selectEmissionFeature = createFeatureSelector<EmissionState>(emissionStateKey);
+
+export const selectEmissionData = createSelector(selectEmissionFeature, (state: EmissionState) => state.data);

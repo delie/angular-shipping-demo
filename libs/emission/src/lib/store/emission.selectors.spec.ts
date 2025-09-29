@@ -1,16 +1,16 @@
-import { mockState } from '../../testing/data/mock-state';
-import { selectVATList, selectVATState } from './vat.selectors';
+import { mockEmissionState } from '../testing/mock-emission-state';
+import { selectEmissionData, selectEmissionFeature } from './emission.selectors';
 
-describe('VAT Selectors', () => {
-  describe('selectVATState()', () => {
-    it('should return vat', () => {
-      expect(selectVATState.projector(mockState.core)).toEqual(mockState.core.vat);
+describe('Emission Selectors', () => {
+  describe('selectEmissionFeature()', () => {
+    it('should return emission feature', () => {
+      expect(selectEmissionFeature.projector(mockEmissionState)).toEqual(mockEmissionState);
     });
   });
 
-  describe('selectVATList()', () => {
-    it('should return vatList', () => {
-      expect(selectVATList.projector(mockState.core.vat)).toEqual(mockState.core.vat.list);
+  describe('selectEmissionData()', () => {
+    it('should return emission data', () => {
+      expect(selectEmissionData.projector(mockEmissionState)).toEqual(mockEmissionState.data);
     });
   });
 });

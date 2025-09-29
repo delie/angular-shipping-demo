@@ -1,26 +1,21 @@
 import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
-import { catchError, filter, map, of, switchMap, withLatestFrom } from 'rxjs';
-import { VATService } from '../../services/vat/vat.service';
-import { loadVATList, loadVATListFailure, loadVATListSuccess } from './vat.actions';
-import { selectVATList } from './vat.selectors';
+import { catchError, map, of, switchMap } from 'rxjs';
+import { EmissionHttpService } from '../services/emission-http/emission-http.service';
+import { loadEmissions, loadEmissionsFailure, loadEmissionsSuccess } from './emission.actions';
 
 @Injectable()
-export class VATEffects {
+export class EmissionEffects {
   #actions$ = inject(Actions);
-  #store$ = inject(Store);
-  #vatService = inject(VATService);
+  #emissionHttpService = inject(EmissionHttpService);
 
-  loadVATList$ = createEffect(() =>
+  loadEmissions$ = createEffect(() =>
     this.#actions$.pipe(
-      ofType(loadVATList),
-      withLatestFrom(this.#store$.select(selectVATList)),
-      filter(([, { status }]) => status === 'Loading'),
+      ofType(loadEmissions),
       switchMap(() =>
-        this.#vatService.getList().pipe(
-          map((remoteData) => loadVATListSuccess({ remoteData })),
-          catchError((error) => of(loadVATListFailure({ error })))
+        this.#emissionHttpService.get().pipe(
+          map(() => loadEmissionsSuccess({ remoteData: true })),
+          catchError((error) => of(loadEmissionsFailure({ error })))
         )
       )
     )

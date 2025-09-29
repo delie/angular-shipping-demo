@@ -1,43 +1,31 @@
 import { createReducer, on } from '@ngrx/store';
-import { VATState } from '../../interfaces/vat-state.interface';
-import { loadVATList, loadVATListFailure, loadVATListSuccess } from './vat.actions';
-import { initialVATState } from './vat.state';
+import { EmissionState } from '../interfaces/emission-state.interface';
+import { loadEmissions, loadEmissionsFailure, loadEmissionsSuccess } from './emission.actions';
+import { initialEmissionState } from './emission.state';
 
-export const vatReducer = createReducer(
-  initialVATState,
+export const emissionReducer = createReducer(
+  initialEmissionState,
 
-  on(loadVATList, (state, { useCache }): VATState => {
-    const shouldLoad = useCache === false || state.list.status !== 'Success';
-    const status = shouldLoad ? 'Loading' : state.list.status;
+  on(loadEmissions, (state): EmissionState => {
     return {
       ...state,
-      list: {
-        status,
-        value: [],
-      },
+      data: false,
     };
   }),
 
   on(
-    loadVATListSuccess,
-    (state, { remoteData }): VATState => ({
+    loadEmissionsSuccess,
+    (state, { remoteData }): EmissionState => ({
       ...state,
-      list: {
-        status: 'Success',
-        value: remoteData,
-      },
+      data: remoteData,
     })
   ),
 
   on(
-    loadVATListFailure,
-    (state, { error }): VATState => ({
+    loadEmissionsFailure,
+    (state, { error }): EmissionState => ({
       ...state,
-      list: {
-        status: 'Failure',
-        value: [],
-        error,
-      },
+      data: false,
     })
   )
 );
