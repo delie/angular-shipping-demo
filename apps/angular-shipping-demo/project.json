@@ -12,7 +12,7 @@
       "options": {
         "outputPath": "dist/apps/angular-shipping-demo",
         "browser": "apps/angular-shipping-demo/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [],
         "tsConfig": "apps/angular-shipping-demo/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [

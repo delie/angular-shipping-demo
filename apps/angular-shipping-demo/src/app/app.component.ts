@@ -4,6 +4,6 @@ import { RouterModule } from '@angular/router';
 @Component({
   imports: [RouterModule],
   selector: 'demo-root',
-  templateUrl: './app.html',
+  templateUrl: './app.component.html',
 })
-export class App {}
+export class AppComponent {}
