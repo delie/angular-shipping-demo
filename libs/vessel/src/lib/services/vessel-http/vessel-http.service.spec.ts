@@ -2,13 +2,14 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { HttpTestingController, provideHttpClientTesting, TestRequest } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { apiUrlToken } from '@app/core';
+import { VesselResponse } from '../../types/vessel-response.type';
 import { VesselHttpService } from './vessel-http.service';
 
 describe('VesselHttpService', () => {
   let service: VesselHttpService;
   let httpTest: HttpTestingController;
   let req: TestRequest;
-  let response: any;
+  let response: VesselResponse;
 
   const mockApiUrl = 'http://mock';
 

@@ -1,8 +1,8 @@
-import { TopNavComponent } from './top-nav.component';
+import { LogoComponent } from './logo.component';
 
 export default {
-  component: TopNavComponent,
-  title: 'Core/Top nav',
+  component: LogoComponent,
+  title: 'Core/Logo',
   decorators: [],
 };
 

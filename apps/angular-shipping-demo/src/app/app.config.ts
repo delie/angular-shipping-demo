@@ -3,7 +3,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ApplicationConfig, isDevMode, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
-import { apiUrlToken } from '@app/core';
+import { apiUrlToken, primePreset } from '@app/core';
 import { provideEmissionStore } from '@app/emission';
 import { provideVesselStore } from '@app/vessel';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
@@ -11,7 +11,6 @@ import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideHighcharts } from 'highcharts-angular';
 import { providePrimeNG } from 'primeng/config';
-import { primePreset } from './app.prime-preset';
 import { appRoutes } from './app.routes';
 
 export const appConfig = (apiUrl: string): ApplicationConfig => ({

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { MockLogoComponent } from '../../testing/mock-logo.component';
+import { MockMenuBarComponent } from '../../testing/mock-menubar.component';
 import { TopNavComponent } from './top-nav.component';
 
 describe('TopNavComponent', () => {
@@ -9,10 +10,16 @@ describe('TopNavComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TopNavComponent],
-      providers: [
-        provideRouter([]),
-      ],
-    }).compileComponents();
+    })
+      .overrideComponent(TopNavComponent, {
+        set: {
+          imports: [
+            MockLogoComponent,
+            MockMenuBarComponent,
+          ],
+        },
+      })
+      .compileComponents();
 
     fixture = TestBed.createComponent(TopNavComponent);
     component = fixture.componentInstance;

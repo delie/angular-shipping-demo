@@ -2,7 +2,7 @@ import { CommonModule, formatDate } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import type { ColDef, Theme } from 'ag-grid-community';
-import { colorSchemeDarkBlue, themeQuartz } from 'ag-grid-community';
+import { AllCommunityModule, colorSchemeDarkBlue, ModuleRegistry, themeQuartz } from 'ag-grid-community';
 import { VesselData } from '../../interfaces/vessel-data.interface';
 
 @Component({
@@ -11,6 +11,10 @@ import { VesselData } from '../../interfaces/vessel-data.interface';
   templateUrl: './vessel-grid.component.html',
 })
 export class VesselGridComponent {
+  constructor() {
+    ModuleRegistry.registerModules([AllCommunityModule]);
+  }
+
   vessels = input<VesselData[] | null>([]);
 
   theme: Theme = themeQuartz.withPart(colorSchemeDarkBlue);

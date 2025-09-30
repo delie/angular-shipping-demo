@@ -1,13 +1,15 @@
-import type { StorybookConfig } from "@storybook/angular";
+import type { StorybookConfig } from '@storybook/angular';
 
 const config: StorybookConfig = {
-  stories: ["../../../libs/**/*.@(mdx|stories.@(js|jsx|ts|tsx))"],
+  stories: ['../../../libs/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
   addons: [],
   framework: {
-    name: "@storybook/angular",
+    name: '@storybook/angular',
     options: {},
   },
-  staticDirs: [],
+  staticDirs: [
+    '../../../apps/angular-shipping-demo/public',
+  ],
   docs: {},
 };
 

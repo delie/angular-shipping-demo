@@ -5,6 +5,17 @@ const preview: Preview = {
   decorators: [
     applicationConfig(storybookAppConfig),
   ],
+  parameters: {
+    backgrounds: {
+      options: {
+        dark: { name: 'Dark', value: '#222222', default: true },
+      },
+    },
+  },
+
+  initialGlobals: {
+    backgrounds: { value: 'dark' },
+  },
 };
 
 export default preview;

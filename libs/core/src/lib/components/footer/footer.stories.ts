@@ -1,8 +1,8 @@
-import { TopNavComponent } from './top-nav.component';
+import { FooterComponent } from './footer.component';
 
 export default {
-  component: TopNavComponent,
-  title: 'Core/Top nav',
+  component: FooterComponent,
+  title: 'Core/Footer',
   decorators: [],
 };
 

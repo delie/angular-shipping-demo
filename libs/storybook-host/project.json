@@ -6,18 +6,6 @@
   "tags": [],
   "projectType": "library",
   "targets": {
-    "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
-      "options": {
-        "lintFilePatterns": [
-          "libs/storybook-host/**/*.ts",
-          "libs/storybook-host/**/*.html"
-        ]
-      }
-    },
     "storybook": {
       "executor": "@storybook/angular:start-storybook",
       "options": {
@@ -58,12 +46,7 @@
         }
       }
     },
-    "test-storybook": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "test-storybook -c .storybook --url=http://localhost:4400"
-      }
-    },
+
     "static-storybook": {
       "executor": "@nx/web:file-server",
       "options": {

@@ -2,13 +2,14 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { HttpTestingController, provideHttpClientTesting, TestRequest } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { apiUrlToken } from '@app/core';
+import { EmissionResponse } from '../../types/emission-reponse.type';
 import { EmissionHttpService } from './emission-http.service';
 
 describe('EmissionHttpService', () => {
   let service: EmissionHttpService;
   let httpTest: HttpTestingController;
   let req: TestRequest;
-  let response: any;
+  let response: EmissionResponse;
 
   const mockApiUrl = 'http://mock';
 
