@@ -3,7 +3,7 @@
 Set-up:
 
 1. Clone the repo.
-2. Create a configuration file named `app-config.json` and save to: ./apps/angular-shipping-demo/public/
+2. Create a configuration file named `app-config.json` and save to: `./apps/angular-shipping-demo/public/`
 3. Copy and paste the following into the file:
 
 ```
