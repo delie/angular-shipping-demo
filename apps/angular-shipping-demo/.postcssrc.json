@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "@tailwindcss/postcss": {
+      "config": "apps/angular-shipping-demo/tailwind.config.cjs"
+    },
+    "autoprefixer": {}
+  }
+}

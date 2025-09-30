@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'tailwindcss';
+@plugin "tailwindcss-primeui";
+
+@import 'primeicons/primeicons.css';
+
+@theme {
+  --text-xl: 1.7rem;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding-bottom: 12px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+@layer utilities {
+  .text-success {
+    color: var(--p-success-color, var(--p-success-500));
+  }
+}
+
+@layer base {
+  a {
+    color: var(--p-primary-color);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--p-primary-hover-color);
+    }
+  }
+}
+
+@layer components {
+  .p-menubar {
+    --p-menubar-item-color: var(--p-primary-color);
+    --p-menubar-color: var(--p-primary-color);
+    --p-menubar-item-hover-color: var(--p-primary-hover-color, color-mix(in srgb, var(--p-primary-color) 85%, black));
+    --p-menubar-item-focus-color: var(--p-primary-hover-color, color-mix(in srgb, var(--p-primary-color) 85%, black));
+    --p-menubar-item-active-color: var(--p-primary-color);
+  }
+}

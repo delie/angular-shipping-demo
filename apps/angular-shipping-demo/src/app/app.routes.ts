@@ -1,11 +1,11 @@
 import { Route } from '@angular/router';
-import { provideEmissionStore } from '@demo/emission';
-import { provideVesselStore } from '@demo/vessel';
+import { provideEmissionStore } from '@app/emission';
+import { provideVesselStore } from '@app/vessel';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    loadChildren: () => import('@demo/dashboard').then((m) => m.dashboardRoutes),
+    loadChildren: () => import('@app/dashboard').then((m) => m.dashboardRoutes),
     providers: [
       provideVesselStore(),
       provideEmissionStore(),

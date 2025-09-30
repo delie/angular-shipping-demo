@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { mockVesselResponse, VesselState } from '@demo/vessel';
+import { mockVesselResponse, VesselState } from '@app/vessel';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MockInstance } from 'vitest';
 import { EmissionState } from '../../interfaces/emission-state.interface';

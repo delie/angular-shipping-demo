@@ -3,7 +3,7 @@ import { Component, input } from '@angular/core';
 import { VesselData } from '../../interfaces/vessel-data.interface';
 
 @Component({
-  selector: 'demo-vessel-grid',
+  selector: 'app-vessel-grid',
   imports: [CommonModule],
   templateUrl: './vessel-grid.component.html',
 })

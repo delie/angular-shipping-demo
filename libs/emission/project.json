@@ -2,7 +2,7 @@
   "name": "emission",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/emission/src",
-  "prefix": "demo",
+  "prefix": "app",
   "projectType": "library",
   "tags": [],
   "targets": {

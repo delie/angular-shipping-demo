@@ -1,4 +1,4 @@
-import { RequestStatus } from '@demo/core';
+import { RequestStatus } from '@app/core';
 import { EmissionResponse } from '../types/emission-reponse.type';
 
 export interface EmissionState {

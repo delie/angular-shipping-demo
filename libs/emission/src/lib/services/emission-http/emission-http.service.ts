@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { apiUrlToken } from '@demo/core';
+import { apiUrlToken } from '@app/core';
 
 @Injectable({ providedIn: 'root' })
 export class EmissionHttpService {

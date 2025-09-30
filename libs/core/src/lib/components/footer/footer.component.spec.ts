@@ -1,24 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { TopNavComponent } from '@app/core';
-import { DashboardRootComponent } from './dashboard-root.component';
+import { TopNavComponent } from './top-nav.component';
 
-describe('DashboardRootComponent', () => {
-  let component: DashboardRootComponent;
-  let fixture: ComponentFixture<DashboardRootComponent>;
+describe('TopNavComponent', () => {
+  let component: TopNavComponent;
+  let fixture: ComponentFixture<TopNavComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        DashboardRootComponent,
-        TopNavComponent,
-      ],
+      imports: [TopNavComponent],
       providers: [
         provideRouter([]),
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DashboardRootComponent);
+    fixture = TestBed.createComponent(TopNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

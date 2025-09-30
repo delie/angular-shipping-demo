@@ -80,16 +80,16 @@
       "linter": "eslint",
       "unitTestRunner": "vitest",
       "style": "scss",
-      "prefix": "demo"
+      "prefix": "app"
     },
     "@nx/angular:component": {
       "style": "scss",
-      "prefix": "demo",
+      "prefix": "app",
       "changeDetection": "OnPush",
       "standalone": true,
       "path": "src/lib/components/new/new",
       "name": "new",
-      "selector": "demo-new",
+      "selector": "app-new",
       "type": "component"
     }
   }

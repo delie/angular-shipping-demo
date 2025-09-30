@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { VesselData } from '@demo/vessel';
+import { VesselData } from '@app/vessel';
 import { EmissionData } from '../../interfaces/emission-data.interface';
 
 @Component({
-  selector: 'demo-emission-chart',
+  selector: 'app-emission-chart',
   templateUrl: './emission-chart.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],

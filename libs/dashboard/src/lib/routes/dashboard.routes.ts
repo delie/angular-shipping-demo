@@ -13,11 +13,11 @@ export const dashboardRoutes: Route[] = [
       },
       {
         path: 'vessels',
-        loadChildren: () => import('@demo/vessel').then((m) => m.vesselRoutes),
+        loadChildren: () => import('@app/vessel').then((m) => m.vesselRoutes),
       },
       {
         path: 'emissions',
-        loadChildren: () => import('@demo/emission').then((m) => m.emissionRoutes),
+        loadChildren: () => import('@app/emission').then((m) => m.emissionRoutes),
       },
     ],
   },

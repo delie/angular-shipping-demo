@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RequestStatus } from '@demo/core';
-import { loadVessels, selectVesselData } from '@demo/vessel';
+import { RequestStatus } from '@app/core';
+import { loadVessels, selectVesselData } from '@app/vessel';
 import { Store } from '@ngrx/store';
 import { tap } from 'rxjs';
 import { EmissionChartComponent } from '../../components/emission-chart/emission-chart.component';
@@ -9,7 +9,7 @@ import { loadEmissions } from '../../store/emission.actions';
 import { selectEmissionData } from '../../store/emission.selectors';
 
 @Component({
-  selector: 'demo-emissions',
+  selector: 'app-emissions',
   imports: [EmissionChartComponent, CommonModule],
   templateUrl: './emissions.component.html',
 })

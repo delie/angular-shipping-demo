@@ -2,7 +2,7 @@
   "name": "storybook-host",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/storybook-host/src",
-  "prefix": "demo",
+  "prefix": "app",
   "tags": [],
   "projectType": "library",
   "targets": {

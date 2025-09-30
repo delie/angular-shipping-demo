@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { TopNavComponent } from '@demo/core';
-
+import { FooterComponent, TopNavComponent } from '@app/core';
 @Component({
-  selector: 'demo-dashboard-root',
-  imports: [TopNavComponent, RouterModule],
+  selector: 'app-dashboard-root',
+  imports: [TopNavComponent, RouterModule, FooterComponent],
   templateUrl: './dashboard-root.component.html',
 })
 export class DashboardRootComponent {}
