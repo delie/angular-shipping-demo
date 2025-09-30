@@ -2,7 +2,7 @@ import { EmissionData } from '../interfaces/emission-data.interface';
 import { EmissionResponse } from '../types/emission-reponse.type';
 
 export const mockEmissionData1: EmissionData = {
-  id: 1,
+  id: 100,
   timeSeries: [
     {
       report_from_utc: '2025-01-01T00:00:00Z',
@@ -17,7 +17,7 @@ export const mockEmissionData1: EmissionData = {
 };
 
 export const mockEmissionData2: EmissionData = {
-  id: 2,
+  id: 200,
   timeSeries: [
     {
       report_from_utc: '2025-02-01T00:00:00Z',

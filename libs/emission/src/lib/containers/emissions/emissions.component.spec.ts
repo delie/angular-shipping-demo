@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { mockVesselResponse, VesselState } from '@app/vessel';
+import { loadVessels, mockVesselResponse, VesselState } from '@app/vessel';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MockInstance } from 'vitest';
 import { EmissionState } from '../../interfaces/emission-state.interface';
@@ -95,6 +95,27 @@ describe('EmissionsComponent', () => {
         component.onEmissionDataChange('Success');
       });
       it('should not dispatch loadEmissions() action', () => {
+        expect(store$.dispatch).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('onVesselDataChange()', () => {
+    describe('when status is null', () => {
+      beforeEach(() => {
+        vitest.spyOn(store$, 'dispatch');
+        component.onVesselDataChange(null);
+      });
+      it('should dispatch loadVessels() action', () => {
+        expect(store$.dispatch).toHaveBeenCalledExactlyOnceWith(loadVessels());
+      });
+    });
+    describe('when status is not null', () => {
+      beforeEach(() => {
+        vitest.spyOn(store$, 'dispatch');
+        component.onVesselDataChange('Success');
+      });
+      it('should not dispatch loadVessels() action', () => {
         expect(store$.dispatch).not.toHaveBeenCalled();
       });
     });

@@ -1,5 +1,5 @@
 import { CommonModule, formatDate } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import type { ColDef, Theme } from 'ag-grid-community';
 import { AllCommunityModule, colorSchemeDarkBlue, ModuleRegistry, themeQuartz } from 'ag-grid-community';
@@ -10,13 +10,8 @@ import { VesselData } from '../../interfaces/vessel-data.interface';
   imports: [CommonModule, AgGridAngular],
   templateUrl: './vessel-grid.component.html',
 })
-export class VesselGridComponent {
-  constructor() {
-    ModuleRegistry.registerModules([AllCommunityModule]);
-  }
-
+export class VesselGridComponent implements OnInit {
   vessels = input<VesselData[] | null>([]);
-
   theme: Theme = themeQuartz.withPart(colorSchemeDarkBlue);
   columns: ColDef[] = [
     { field: 'id', headerName: 'ID', width: 100, filter: true },
@@ -35,4 +30,8 @@ export class VesselGridComponent {
       width: 130,
     },
   ];
+
+  ngOnInit() {
+    ModuleRegistry.registerModules([AllCommunityModule]);
+  }
 }
