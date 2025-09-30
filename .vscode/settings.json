@@ -1,0 +1,11 @@
+{
+  "editor.rulers": [140],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "ng-template": "html",
+    "typescript": "typescript"
+  },
+  "tailwindCSS.experimental.classRegex": []
+}

@@ -1,4 +1,27 @@
-<h2>Emission Chart</h2>
+<form [formGroup]="formGroup">
+  <p-floatlabel class="w-full mt-6">
+    <p-select
+      id="vesselId"
+      name="vesselId"
+      [options]="filteredVessels()"
+      optionLabel="name"
+      optionValue="id"
+      class="w-full md:w-56"
+      formControlName="vesselId"
+      (onChange)="onVesselChange($event.value)"
+    />
+    <label for="vesselId">Vessel</label>
+  </p-floatlabel>
+</form>
 
-json data:<br />
-{{ emissions() | json }}
+@if (chartOptions.series) {
+  <div class="mt-4">
+    <highcharts-chart
+      [constructorType]="chartConstructor"
+      [options]="chartOptions"
+      [(update)]="updateFlag"
+      [oneToOne]="oneToOneFlag"
+      class="highcharts-dark block w-full h-[550px] rounded-xl"
+    />
+  </div>
+}

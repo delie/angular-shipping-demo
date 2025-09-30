@@ -10,7 +10,10 @@ import { selectEmissionData } from '../../store/emission.selectors';
 
 @Component({
   selector: 'app-emissions',
-  imports: [EmissionChartComponent, CommonModule],
+  imports: [
+    EmissionChartComponent,
+    CommonModule,
+  ],
   templateUrl: './emissions.component.html',
 })
 export class EmissionsComponent {
