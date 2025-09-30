@@ -9,7 +9,10 @@ export const emissionReducer = createReducer(
   on(loadEmissions, (state): EmissionState => {
     return {
       ...state,
-      data: false,
+      data: {
+        ...state.data,
+        status: 'Loading',
+      },
     };
   }),
 
@@ -17,15 +20,21 @@ export const emissionReducer = createReducer(
     loadEmissionsSuccess,
     (state, { remoteData }): EmissionState => ({
       ...state,
-      data: remoteData,
+      data: {
+        status: 'Success',
+        value: remoteData,
+      },
     })
   ),
 
   on(
     loadEmissionsFailure,
-    (state, { error }): EmissionState => ({
+    (state): EmissionState => ({
       ...state,
-      data: false,
+      data: {
+        status: 'Failure',
+        value: null,
+      },
     })
   )
 );

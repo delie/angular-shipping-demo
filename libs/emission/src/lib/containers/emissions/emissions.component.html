@@ -1,2 +1,5 @@
+@let emissions = (emissions$ | async)?.value ?? [];
+@let vessels = (vessels$ | async)?.value ?? [];
+
 <h1>Emissions</h1>
-<demo-emission-chart></demo-emission-chart>
+<demo-emission-chart [emissions]="emissions" [vessels]="vessels"></demo-emission-chart>

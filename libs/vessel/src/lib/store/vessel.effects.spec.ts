@@ -1,16 +1,18 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Action } from '@ngrx/store';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
 import { VesselHttpService } from '../services/vessel-http/vessel-http.service';
+import { mockVesselResponse } from '../testing/mock-vessel-response';
 import { loadVessels, loadVesselsFailure, loadVesselsSuccess } from './vessel.actions';
 import { VesselEffects } from './vessel.effects';
+import { initialVesselState } from './vessel.state';
 
 describe('VesselEffects', () => {
   let actions$: Observable<Action>;
-  let store$: MockStore;
   let effects: VesselEffects;
   let vesselHttpService: VesselHttpService;
 
@@ -18,53 +20,42 @@ describe('VesselEffects', () => {
     TestBed.configureTestingModule({
       providers: [
         VesselEffects,
-        provideMockStore({ initialState: {} }),
+        provideMockStore({ initialState: initialVesselState }),
         provideMockActions(() => actions$),
         {
           provide: VesselHttpService,
           useValue: {
-            getList: () => of([]),
+            get: () => of([]),
           },
         },
       ],
     });
     effects = TestBed.inject(VesselEffects);
-    store$ = TestBed.inject(MockStore);
     vesselHttpService = TestBed.inject(VesselHttpService);
   });
 
   describe('loadVessels$', () => {
-    const mockVessels = [
-      { id: 1, value: 100 },
-      { id: 2, value: 200 },
-    ];
-    const mockHttpError: any = {};
-
-    const state = {
-      data: {},
-    };
     describe('on success', () => {
       beforeEach(() => {
-        store$.setState(state);
         actions$ = hot('-a', { a: loadVessels() });
-        vesselHttpService.get = vitest.fn(() => of(mockVessels));
+        vesselHttpService.get = vitest.fn(() => of(mockVesselResponse));
       });
       it('should return success action', () => {
-        const expected = loadVesselsSuccess({ remoteData: true });
-        const expected$ = cold('-b', { b: expected });
+        const action = loadVesselsSuccess({ remoteData: mockVesselResponse });
+        const expected$ = cold('-b', { b: action });
         expect(effects.loadVessels$).toBeObservable(expected$);
       });
     });
 
     describe('on failure', () => {
+      const error = { error: 'error', status: 401 } as HttpErrorResponse;
       beforeEach(() => {
-        store$.setState(state);
         actions$ = hot('-a', { a: loadVessels() });
-        vesselHttpService.get = vitest.fn(() => cold('#', null, mockHttpError));
+        vesselHttpService.get = vitest.fn(() => cold('#', null, error));
       });
       it('should return failure action', () => {
-        const expected = loadVesselsFailure({ error: mockHttpError });
-        const expected$ = cold('-b', { b: expected });
+        const action = loadVesselsFailure({ error });
+        const expected$ = cold('-b', { b: action });
         expect(effects.loadVessels$).toBeObservable(expected$);
       });
     });

@@ -14,7 +14,7 @@ export class VesselEffects {
       ofType(loadVessels),
       switchMap(() =>
         this.#vesselHttpService.get().pipe(
-          map(() => loadVesselsSuccess({ remoteData: true })),
+          map((remoteData) => loadVesselsSuccess({ remoteData })),
           catchError((error) => of(loadVesselsFailure({ error })))
         )
       )

@@ -10,7 +10,10 @@ export const vesselReducer = createReducer(
   on(loadVessels, (state): VesselState => {
     return {
       ...state,
-      data: false,
+      data: {
+        ...state.data,
+        status: 'Loading',
+      },
     };
   }),
 
@@ -18,15 +21,21 @@ export const vesselReducer = createReducer(
     loadVesselsSuccess,
     (state, { remoteData }): VesselState => ({
       ...state,
-      data: remoteData,
+      data: {
+        status: 'Success',
+        value: remoteData,
+      },
     })
   ),
 
   on(
     loadVesselsFailure,
-    (state, { error }): VesselState => ({
+    (state): VesselState => ({
       ...state,
-      data: false,
+      data: {
+        status: 'Failure',
+        value: null,
+      },
     })
   )
 );

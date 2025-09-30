@@ -7,17 +7,20 @@ import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { appRoutes } from './app.routes';
 
-const apiUrl = '/api';
-
-export const appConfig: ApplicationConfig = {
+export const appConfig = (apiUrl: string): ApplicationConfig => ({
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(appRoutes),
-    { provide: apiUrlToken, useValue: apiUrl },
+    {
+      provide: apiUrlToken,
+      useValue: apiUrl,
+    },
     provideStore(
-      { router: routerReducer },
+      {
+        router: routerReducer,
+      },
       {
         runtimeChecks: {
           strictActionImmutability: true,
@@ -28,4 +31,4 @@ export const appConfig: ApplicationConfig = {
     provideRouterStore(),
     provideStoreDevtools({ maxAge: isDevMode() ? 25 : false, logOnly: !isDevMode() }),
   ],
-};
+});

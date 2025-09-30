@@ -6,5 +6,13 @@
   "tabWidth": 2,
   "trailingComma": "es5",
   "printWidth": 140,
-  "multilineArraysWrapThreshold": 4
+  "multilineArraysWrapThreshold": 4,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
 }

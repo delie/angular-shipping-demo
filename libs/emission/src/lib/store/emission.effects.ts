@@ -14,7 +14,7 @@ export class EmissionEffects {
       ofType(loadEmissions),
       switchMap(() =>
         this.#emissionHttpService.get().pipe(
-          map(() => loadEmissionsSuccess({ remoteData: true })),
+          map((remoteData) => loadEmissionsSuccess({ remoteData })),
           catchError((error) => of(loadEmissionsFailure({ error })))
         )
       )
