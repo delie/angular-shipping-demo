@@ -35,5 +35,11 @@ To run the unit test suite:
 To run the e2e test suite:
 
 ```sh
-    nnpx nx run angular-shipping-demo-e2e:e2e
+    npx nx run angular-shipping-demo-e2e:e2e
+```
+
+To run the Nx Graph:
+
+```sh
+    npx nx graph
 ```
