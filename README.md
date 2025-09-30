@@ -26,10 +26,10 @@ To run Storybook:
     npx nx run storybook-host:storybook
 ```
 
-To run the unit test suite:
+To run the full unit test suite:
 
 ```sh
-    npx nx run-many --target=test
+    npx nx run-many -t test --all
 ```
 
 To run the e2e test suite:
