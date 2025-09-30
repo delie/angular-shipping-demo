@@ -3,8 +3,8 @@
 Set-up:
 
 1. Clone the repo.
-2. Create a configuration file named 'app-config.json' and save it here: ./apps/angular-shipping-demo/public
-3. The file should contain the following data:
+2. Create a configuration file named `app-config.json` and save to: ./apps/angular-shipping-demo/public/
+3. Copy and paste the following into the file:
 
 ```
 {
@@ -38,7 +38,7 @@ To run the e2e test suite:
     npx nx run angular-shipping-demo-e2e:e2e
 ```
 
-To run the Nx Graph:
+To run Nx Graph:
 
 ```sh
     npx nx graph
