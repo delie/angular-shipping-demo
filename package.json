@@ -2,13 +2,6 @@
   "name": "@angular-shipping-demo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-    "serve": "npx nx run angular-shipping-demo:serve:development",
-    "build": "npx nx run angular-shipping-demo:build",
-    "storybook": "npx nx run storybook-host:storybook",
-    "test-all": "npx nx run-many -t test --all",
-    "graph": "npx nx graph"
-  },
   "private": true,
   "dependencies": {
     "@angular/animations": "20.2.2",
