@@ -76,6 +76,37 @@
         "reportsDirectory": "../../coverage/apps/angular-shipping-demo"
       }
     },
+
+    "test-all-nx": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run-many -t test --all --exclude=@angular-shipping-demo/source"
+      }
+    },
+    "test-all-vitest": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest"
+      }
+    },
+
+    "graph": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx graph --open"
+      },
+      "configurations": {
+        "default": {
+          "command": "nx graph --open"
+        },
+        "focus": {
+          "command": "nx graph --focus=angular-shipping-demo --open"
+        },
+        "affected": {
+          "command": "nx graph --affected --open"
+        }
+      }
+    },
     "serve-static": {
       "continuous": true,
       "executor": "@nx/web:file-server",
