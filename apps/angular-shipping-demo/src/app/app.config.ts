@@ -1,11 +1,8 @@
-/* eslint-disable @nx/enforce-module-boundaries */
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ApplicationConfig, isDevMode, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
 import { apiUrlToken, primePreset } from '@app/core';
-import { provideEmissionStore } from '@app/emission';
-import { provideVesselStore } from '@app/vessel';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -34,8 +31,7 @@ export const appConfig = (apiUrl: string): ApplicationConfig => ({
         },
       }
     ),
-    provideVesselStore(),
-    provideEmissionStore(),
+
     provideRouterStore(),
     provideStoreDevtools({ maxAge: isDevMode() ? 25 : false, logOnly: !isDevMode() }),
     provideAnimationsAsync(),

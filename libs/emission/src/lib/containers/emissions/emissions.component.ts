@@ -15,13 +15,13 @@ import { selectEmissionsStatus, selectEmissionsValue } from '../../store/emissio
   templateUrl: './emissions.component.html',
 })
 export class EmissionsComponent implements OnInit {
-  #store$ = inject(Store);
+  #store = inject(Store);
 
-  vesselsValue = this.#store$.selectSignal(selectVesselsValue);
-  vesselsStatus = this.#store$.selectSignal(selectVesselsStatus);
+  vesselsValue = this.#store.selectSignal(selectVesselsValue);
+  vesselsStatus = this.#store.selectSignal(selectVesselsStatus);
 
-  emissionsValue = this.#store$.selectSignal(selectEmissionsValue);
-  emissionsStatus = this.#store$.selectSignal(selectEmissionsStatus);
+  emissionsValue = this.#store.selectSignal(selectEmissionsValue);
+  emissionsStatus = this.#store.selectSignal(selectEmissionsStatus);
 
   ngOnInit() {
     this.loadVessels();
@@ -30,11 +30,11 @@ export class EmissionsComponent implements OnInit {
 
   loadVessels() {
     if (this.vesselsStatus() === 'Success') return;
-    this.#store$.dispatch(loadVessels());
+    this.#store.dispatch(loadVessels());
   }
 
   loadEmissions() {
     if (this.emissionsStatus() === 'Success') return;
-    this.#store$.dispatch(loadEmissions());
+    this.#store.dispatch(loadEmissions());
   }
 }

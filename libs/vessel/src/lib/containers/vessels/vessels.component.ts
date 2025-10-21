@@ -11,10 +11,10 @@ import { selectVesselsStatus, selectVesselsValue } from '../../store/vessel.sele
   templateUrl: './vessels.component.html',
 })
 export class VesselsComponent implements OnInit {
-  #store$ = inject(Store);
+  #store = inject(Store);
 
-  vesselsValue = this.#store$.selectSignal(selectVesselsValue);
-  vesselsStatus = this.#store$.selectSignal(selectVesselsStatus);
+  vesselsValue = this.#store.selectSignal(selectVesselsValue);
+  vesselsStatus = this.#store.selectSignal(selectVesselsStatus);
 
   ngOnInit() {
     this.loadVessels();
@@ -22,6 +22,6 @@ export class VesselsComponent implements OnInit {
 
   loadVessels() {
     if (this.vesselsStatus() === 'Success') return;
-    this.#store$.dispatch(loadVessels());
+    this.#store.dispatch(loadVessels());
   }
 }
