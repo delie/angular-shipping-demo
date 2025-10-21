@@ -1,9 +1,11 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { RequestStatus } from '@app/core';
-import { VesselResponse } from '../types/vessel-response.type';
+import { VesselData } from './vessel-data.interface';
 
 export interface VesselState {
-  data: {
+  vessels: {
+    value: VesselData[];
     status: RequestStatus;
-    value: VesselResponse | null;
+    error?: HttpErrorResponse;
   };
 }

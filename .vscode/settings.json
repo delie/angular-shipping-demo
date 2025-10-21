@@ -7,5 +7,6 @@
     "ng-template": "html",
     "typescript": "typescript"
   },
-  "tailwindCSS.experimental.classRegex": []
+  "tailwindCSS.experimental.classRegex": [],
+  "nxConsole.nxWorkspacePath": ""
 }

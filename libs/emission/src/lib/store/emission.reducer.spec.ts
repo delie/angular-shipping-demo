@@ -15,8 +15,8 @@ describe('Emission reducer', () => {
     it('should expected state', () => {
       const expected: EmissionState = {
         ...initialEmissionState,
-        data: {
-          ...initialEmissionState.data,
+        emissions: {
+          ...initialEmissionState.emissions,
           status: 'Loading',
         },
       };
@@ -28,8 +28,8 @@ describe('Emission reducer', () => {
     beforeEach(() => {
       const state: EmissionState = {
         ...initialEmissionState,
-        data: {
-          ...initialEmissionState.data,
+        emissions: {
+          ...initialEmissionState.emissions,
           status: 'Loading',
         },
       };
@@ -38,7 +38,7 @@ describe('Emission reducer', () => {
     it('should expected state', () => {
       const expected: EmissionState = {
         ...initialEmissionState,
-        data: {
+        emissions: {
           status: 'Success',
           value: mockEmissionResponse,
         },
@@ -48,23 +48,25 @@ describe('Emission reducer', () => {
   });
 
   describe('loadEmissionsFailure()', () => {
+    const error = { error: 'error', status: 401 } as HttpErrorResponse;
+
     beforeEach(() => {
       const state: EmissionState = {
         ...initialEmissionState,
-        data: {
-          ...initialEmissionState.data,
+        emissions: {
+          ...initialEmissionState.emissions,
           status: 'Loading',
         },
       };
-      const error = { error: 'error', status: 401 } as HttpErrorResponse;
       result = emissionReducer(state, loadEmissionsFailure({ error }));
     });
     it('should expected state', () => {
       const expected: EmissionState = {
         ...initialEmissionState,
-        data: {
+        emissions: {
           status: 'Failure',
-          value: null,
+          value: [],
+          error,
         },
       };
       expect(result).toEqual(expected);

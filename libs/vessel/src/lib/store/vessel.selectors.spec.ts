@@ -1,5 +1,5 @@
 import { mockVesselState } from '../testing/mock-vessel-state';
-import { selectVesselData, selectVesselFeature } from './vessel.selectors';
+import { selectVesselFeature, selectVesselsError, selectVesselsStatus, selectVesselsValue } from './vessel.selectors';
 
 describe('Vessel Selectors', () => {
   describe('selectVesselFeature()', () => {
@@ -8,9 +8,21 @@ describe('Vessel Selectors', () => {
     });
   });
 
-  describe('selectVesselData()', () => {
-    it('should return Vessel data', () => {
-      expect(selectVesselData.projector(mockVesselState)).toEqual(mockVesselState.data);
+  describe('selectVesselsValue()', () => {
+    it('should return vessels.value', () => {
+      expect(selectVesselsValue.projector(mockVesselState)).toEqual(mockVesselState.vessels.value);
+    });
+  });
+
+  describe('selectVesselsStatus()', () => {
+    it('should return vessels.status', () => {
+      expect(selectVesselsStatus.projector(mockVesselState)).toEqual(mockVesselState.vessels.status);
+    });
+  });
+
+  describe('selectVesselsError()', () => {
+    it('should return vessels.error', () => {
+      expect(selectVesselsError.projector(mockVesselState)).toEqual(mockVesselState.vessels.error);
     });
   });
 });

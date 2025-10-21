@@ -4,4 +4,6 @@ import { emissionStateKey } from './emission.state';
 
 export const selectEmissionFeature = createFeatureSelector<EmissionState>(emissionStateKey);
 
-export const selectEmissionData = createSelector(selectEmissionFeature, (state: EmissionState) => state.data);
+export const selectEmissionsValue = createSelector(selectEmissionFeature, (state: EmissionState) => state.emissions.value);
+export const selectEmissionsStatus = createSelector(selectEmissionFeature, (state: EmissionState) => state.emissions.status);
+export const selectEmissionsError = createSelector(selectEmissionFeature, (state: EmissionState) => state.emissions.error);

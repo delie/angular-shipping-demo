@@ -1,3 +1,2 @@
-@let vessels = (vessels$ | async)?.value ?? [];
 <h1>Vessels</h1>
-<app-vessel-grid [vessels]="vessels"></app-vessel-grid>
+<app-vessel-grid [vessels]="vesselsValue()"></app-vessel-grid>

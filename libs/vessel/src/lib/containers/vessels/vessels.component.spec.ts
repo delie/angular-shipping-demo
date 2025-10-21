@@ -3,7 +3,6 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MockInstance } from 'vitest';
 import { VesselState } from '../../interfaces/vessel-state.interface';
 import { loadVessels } from '../../store/vessel.actions';
-import { mockVesselResponse } from '../../testing/mock-vessel-response';
 import { VesselsComponent } from './vessels.component';
 
 describe('VesselsComponent', () => {
@@ -13,7 +12,7 @@ describe('VesselsComponent', () => {
 
   const mockState: { vessel: VesselState } = {
     vessel: {
-      data: { status: null, value: null },
+      vessels: { status: null, value: [] },
     },
   };
 
@@ -31,45 +30,49 @@ describe('VesselsComponent', () => {
     fixture.detectChanges();
   });
 
-  describe('Observables', () => {
-    describe('vessels$', () => {
-      describe('when vessel data changes', () => {
-        let spy: MockInstance;
-        beforeEach(() => {
-          spy = vitest.spyOn(component, 'onVesselDataChange').mockImplementation(() => null);
-          const newState = {
-            vessel: {
-              data: { status: 'Success', value: mockVesselResponse },
-            },
-          };
-          store$.setState(newState);
-        });
-        it('should call onVesselDataChange()', () => {
-          expect(spy.mock.calls).toEqual([['Success']]);
-        });
-      });
+  describe('ngOnInit()', () => {
+    beforeEach(() => {
+      vitest.spyOn(component, 'loadVessels');
+      component.ngOnInit();
+    });
+    it('should call loadVessels()', () => {
+      expect(component.loadVessels).toHaveBeenCalledTimes(1);
     });
   });
 
-  describe('onVesselDataChange()', () => {
-    describe('when status is null', () => {
+  describe('loadVessels()', () => {
+    describe('when vesselsStatus === "Success"', () => {
       beforeEach(() => {
+        const newState = {
+          ...mockState,
+          vessel: {
+            ...mockState.vessel,
+            vessels: { status: 'Success', value: [] },
+          },
+        };
+        store$.setState(newState);
+
         vitest.spyOn(store$, 'dispatch');
-        component.onVesselDataChange(null);
+        component.loadVessels();
       });
-      it('should dispatch loadVessels() action', () => {
-        expect(store$.dispatch).toHaveBeenCalledExactlyOnceWith(loadVessels());
-      });
+      it('should not dispatch loadVessels()', () => expect(store$.dispatch).not.toHaveBeenCalled());
     });
 
-    describe('when status is not null', () => {
+    describe('when vesselsStatus !== "Success"', () => {
+      let spy: MockInstance;
       beforeEach(() => {
-        vitest.spyOn(store$, 'dispatch');
-        component.onVesselDataChange('Success');
+        const newState = {
+          ...mockState,
+          vessel: {
+            ...mockState.vessel,
+            vessels: { status: null, value: [] },
+          },
+        };
+        store$.setState(newState);
+        spy = vitest.spyOn(store$, 'dispatch');
+        component.loadVessels();
       });
-      it('should not dispatch loadVessels() action', () => {
-        expect(store$.dispatch).not.toHaveBeenCalled();
-      });
+      it('should dispatch loadVessels()', () => expect(spy.mock.calls).toEqual([[loadVessels()]]));
     });
   });
 });

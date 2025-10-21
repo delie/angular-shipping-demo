@@ -1,9 +1,11 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { RequestStatus } from '@app/core';
-import { EmissionResponse } from '../types/emission-reponse.type';
+import { EmissionData } from './emission-data.interface';
 
 export interface EmissionState {
-  data: {
+  emissions: {
+    value: EmissionData[];
     status: RequestStatus;
-    value: EmissionResponse | null;
+    error?: HttpErrorResponse;
   };
 }

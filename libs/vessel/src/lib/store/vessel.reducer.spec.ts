@@ -15,8 +15,8 @@ describe('Vessel reducer', () => {
     it('should expected state', () => {
       const expected: VesselState = {
         ...initialVesselState,
-        data: {
-          ...initialVesselState.data,
+        vessels: {
+          ...initialVesselState.vessels,
           status: 'Loading',
         },
       };
@@ -28,8 +28,8 @@ describe('Vessel reducer', () => {
     beforeEach(() => {
       const state: VesselState = {
         ...initialVesselState,
-        data: {
-          ...initialVesselState.data,
+        vessels: {
+          ...initialVesselState.vessels,
           status: 'Loading',
         },
       };
@@ -38,7 +38,7 @@ describe('Vessel reducer', () => {
     it('should expected state', () => {
       const expected: VesselState = {
         ...initialVesselState,
-        data: {
+        vessels: {
           status: 'Success',
           value: mockVesselResponse,
         },
@@ -48,23 +48,25 @@ describe('Vessel reducer', () => {
   });
 
   describe('loadVesselsFailure()', () => {
+    const error = { error: 'error', status: 401 } as HttpErrorResponse;
+
     beforeEach(() => {
       const state: VesselState = {
         ...initialVesselState,
-        data: {
-          ...initialVesselState.data,
+        vessels: {
+          ...initialVesselState.vessels,
           status: 'Loading',
         },
       };
-      const error = { error: 'error', status: 401 } as HttpErrorResponse;
       result = vesselReducer(state, loadVesselsFailure({ error }));
     });
     it('should expected state', () => {
       const expected: VesselState = {
         ...initialVesselState,
-        data: {
+        vessels: {
           status: 'Failure',
-          value: null,
+          value: [],
+          error,
         },
       };
       expect(result).toEqual(expected);

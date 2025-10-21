@@ -1,12 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { RequestStatus } from '@app/core';
-import { loadVessels, selectVesselData } from '@app/vessel';
+import { Component, inject, OnInit } from '@angular/core';
+import { loadVessels, selectVesselsStatus, selectVesselsValue } from '@app/vessel';
 import { Store } from '@ngrx/store';
-import { tap } from 'rxjs';
 import { EmissionChartComponent } from '../../components/emission-chart/emission-chart.component';
 import { loadEmissions } from '../../store/emission.actions';
-import { selectEmissionData } from '../../store/emission.selectors';
+import { selectEmissionsStatus, selectEmissionsValue } from '../../store/emission.selectors';
 
 @Component({
   selector: 'app-emissions',
@@ -16,19 +14,27 @@ import { selectEmissionData } from '../../store/emission.selectors';
   ],
   templateUrl: './emissions.component.html',
 })
-export class EmissionsComponent {
+export class EmissionsComponent implements OnInit {
   #store$ = inject(Store);
 
-  emissions$ = this.#store$.select(selectEmissionData).pipe(tap(({ status }) => this.onEmissionDataChange(status)));
-  vessels$ = this.#store$.select(selectVesselData).pipe(tap(({ status }) => this.onVesselDataChange(status)));
+  vesselsValue = this.#store$.selectSignal(selectVesselsValue);
+  vesselsStatus = this.#store$.selectSignal(selectVesselsStatus);
 
-  onEmissionDataChange(status: RequestStatus) {
-    if (status !== null) return;
-    this.#store$.dispatch(loadEmissions());
+  emissionsValue = this.#store$.selectSignal(selectEmissionsValue);
+  emissionsStatus = this.#store$.selectSignal(selectEmissionsStatus);
+
+  ngOnInit() {
+    this.loadVessels();
+    this.loadEmissions();
   }
 
-  onVesselDataChange(status: RequestStatus) {
-    if (status !== null) return;
+  loadVessels() {
+    if (this.vesselsStatus() === 'Success') return;
     this.#store$.dispatch(loadVessels());
+  }
+
+  loadEmissions() {
+    if (this.emissionsStatus() === 'Success') return;
+    this.#store$.dispatch(loadEmissions());
   }
 }
