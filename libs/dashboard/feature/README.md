@@ -1,4 +1,4 @@
-# Dashboard library
+# dashboard/feature
 
 ## Running unit tests
 

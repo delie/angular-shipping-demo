@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { mockEmissionData1, mockEmissionData2 } from '@app/emission/data-access';
 import { mockVesselData1, mockVesselData2, mockVesselData3 } from '@app/vessel/feature';
-import { mockEmissionData1, mockEmissionData2 } from '../../testing/mock-emission-response';
 import { EmissionChartComponent } from './emission-chart.component';
 
 describe('EmissionChartComponent', () => {

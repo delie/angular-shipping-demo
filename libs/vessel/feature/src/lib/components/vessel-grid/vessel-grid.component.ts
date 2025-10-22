@@ -1,9 +1,9 @@
 import { CommonModule, formatDate } from '@angular/common';
 import { Component, input, OnInit } from '@angular/core';
+import { VesselData } from '@app/vessel/data-access';
 import { AgGridAngular } from 'ag-grid-angular';
 import type { ColDef, Theme } from 'ag-grid-community';
 import { AllCommunityModule, colorSchemeDarkBlue, ModuleRegistry, themeQuartz } from 'ag-grid-community';
-import { VesselData } from '../../interfaces/vessel-data.interface';
 
 @Component({
   selector: 'app-vessel-grid',

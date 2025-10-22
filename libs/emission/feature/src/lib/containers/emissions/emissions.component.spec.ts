@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { loadVessels, selectVesselsStatus, VesselState } from '@app/vessel/feature';
+import { EmissionState, loadEmissions, selectEmissionsStatus } from '@app/emission/data-access';
+import { loadVessels, selectVesselsStatus, VesselState } from '@app/vessel/data-access';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { EmissionState } from '../../interfaces/emission-state.interface';
-import { loadEmissions } from '../../store/emission.actions';
-import { selectEmissionsStatus } from '../../store/emission.selectors';
 import { EmissionsComponent } from './emissions.component';
 
 describe('EmissionsComponent', () => {

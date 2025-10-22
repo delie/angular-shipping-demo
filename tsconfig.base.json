@@ -27,11 +27,17 @@
       "@app/emission/feature": [
         "libs/emission/feature/src/index.ts"
       ],
+      "@app/emission/data-access": [
+        "libs/emission/data-access/src/index.ts"
+      ],
       "@app/storybook-host/feature": [
         "libs/storybook-host/feature/src/index.ts"
       ],
       "@app/vessel/feature": [
         "libs/vessel/feature/src/index.ts"
+      ],
+      "@app/vessel/data-access": [
+        "libs/vessel/data-access/src/index.ts"
       ]
     }
   },

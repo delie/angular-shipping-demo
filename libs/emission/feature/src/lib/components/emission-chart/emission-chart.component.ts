@@ -1,12 +1,11 @@
 import { CommonModule, formatDate } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { VesselData } from '@app/vessel/feature';
+import { EmissionData, TimeSeriesData } from '@app/emission/data-access';
+import { VesselData } from '@app/vessel/data-access';
 import { ChartConstructorType, HighchartsChartComponent } from 'highcharts-angular';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { SelectModule } from 'primeng/select';
-import { EmissionData } from '../../interfaces/emission-data.interface';
-import { TimeSeriesData } from '../../interfaces/time-series-data.interface';
 
 @Component({
   selector: 'app-emission-chart',

@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { loadVessels, VesselState } from '@app/vessel/data-access';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MockInstance } from 'vitest';
-import { VesselState } from '../../interfaces/vessel-state.interface';
-import { loadVessels } from '../../store/vessel.actions';
 import { VesselsComponent } from './vessels.component';
 
 describe('VesselsComponent', () => {

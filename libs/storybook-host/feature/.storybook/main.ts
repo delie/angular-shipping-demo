@@ -8,7 +8,7 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: [
-    '../../../apps/angular-shipping-demo/public',
+    '../../../../apps/angular-shipping-demo/public',
   ],
   docs: {},
 };

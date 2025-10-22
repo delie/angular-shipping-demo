@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { loadVessels, selectVesselsStatus, selectVesselsValue } from '@app/vessel/feature';
+import { loadEmissions, selectEmissionsStatus, selectEmissionsValue } from '@app/emission/data-access';
+import { loadVessels, selectVesselsStatus, selectVesselsValue } from '@app/vessel/data-access';
 import { Store } from '@ngrx/store';
 import { EmissionChartComponent } from '../../components/emission-chart/emission-chart.component';
-import { loadEmissions } from '../../store/emission.actions';
-import { selectEmissionsStatus, selectEmissionsValue } from '../../store/emission.selectors';
 
 @Component({
   selector: 'app-emissions',

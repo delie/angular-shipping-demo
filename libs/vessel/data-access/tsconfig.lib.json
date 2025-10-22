@@ -1,23 +1,27 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../../../dist/out-tsc",
+    "outDir": "../../../dist/out-tsc",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
     "types": []
-  },
-  "scripts": {
-    "storybook-serve": "npx nx run storybook-host:storybook ",
-    "storybook-build": "npx nx run storybook-host:build-storybook"
   },
   "exclude": [
     "src/**/*.spec.ts",
     "src/test-setup.ts",
     "jest.config.ts",
     "src/**/*.test.ts",
-    "**/*.stories.ts",
-    "**/*.stories.js"
+    "vite.config.ts",
+    "vite.config.mts",
+    "vitest.config.ts",
+    "vitest.config.mts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.tsx",
+    "src/**/*.test.js",
+    "src/**/*.spec.js",
+    "src/**/*.test.jsx",
+    "src/**/*.spec.jsx"
   ],
   "include": [
     "src/**/*.ts"

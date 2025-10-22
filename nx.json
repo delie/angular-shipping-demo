@@ -80,7 +80,12 @@
       "linter": "eslint",
       "unitTestRunner": "vitest",
       "style": "scss",
-      "prefix": "app"
+      "prefix": "app",
+      "importPath": "@app/${name}",
+      "directory": "libs/library-name/feature",
+      "name": "library-name/feature",
+      "standalone": false,
+      "skipModule": true
     },
     "@nx/angular:component": {
       "style": "scss",

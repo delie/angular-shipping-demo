@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { provideVesselStore } from '@app/vessel/data-access';
 import { DashboardRootComponent } from '../components/dashboard-root/dashboard-root.component';
 import { HomeComponent } from '../components/home/home.component';
 
@@ -6,6 +7,7 @@ export const dashboardRoutes: Route[] = [
   {
     path: '',
     component: DashboardRootComponent,
+    providers: [provideVesselStore()],
     children: [
       {
         path: '',

@@ -1,4 +1,4 @@
-# Emission library
+# emission/feature
 
 ## Running unit tests
 
