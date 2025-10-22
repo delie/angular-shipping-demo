@@ -1,0 +1,63 @@
+{
+  "name": "storybook-host/feature",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/storybook-host/feature/src",
+  "prefix": "app",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/storybook-host/feature/.storybook",
+        "browserTarget": "storybook-host:build-storybook",
+        "compodoc": false,
+        "assets": [],
+        "styles": [],
+        "stylePreprocessorOptions": {
+          "includePaths": []
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": [
+        "{options.outputDir}"
+      ],
+      "options": {
+        "outputDir": "dist/storybook",
+        "configDir": "libs/storybook-host/feature/.storybook",
+        "browserTarget": "storybook-host:build-storybook",
+        "compodoc": false,
+        "assets": [],
+        "styles": [],
+        "stylePreprocessorOptions": {
+          "includePaths": []
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "storybook-host:build-storybook",
+        "staticFilePath": "dist/storybook/ui"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "storybook-host:build-storybook:ci"
+        }
+      }
+    }
+  }
+}

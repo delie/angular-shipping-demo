@@ -18,20 +18,20 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@app/core": [
-        "libs/core/src/index.ts"
+      "@app/core/feature": [
+        "libs/core/feature/src/index.ts"
       ],
-      "@app/dashboard": [
-        "libs/dashboard/src/index.ts"
+      "@app/dashboard/feature": [
+        "libs/dashboard/feature/src/index.ts"
       ],
-      "@app/emission": [
-        "libs/emission/src/index.ts"
+      "@app/emission/feature": [
+        "libs/emission/feature/src/index.ts"
       ],
-      "@app/storybook-host": [
-        "libs/storybook-host/src/index.ts"
+      "@app/storybook-host/feature": [
+        "libs/storybook-host/feature/src/index.ts"
       ],
-      "@app/vessel": [
-        "libs/vessel/src/index.ts"
+      "@app/vessel/feature": [
+        "libs/vessel/feature/src/index.ts"
       ]
     }
   },
